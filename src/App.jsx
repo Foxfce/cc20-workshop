@@ -23,15 +23,31 @@ function App() {
 
   const addToCart = (id, title, price) => {
     let newItem = { id: id, title: title, price: price, quantity: 1 }
-    if(carts.some((el) => newItem.id === el.id)){
+    if (carts.some((el) => newItem.id === el.id)) {
       const clonedCart = [...carts];
-    clonedCart[carts.findIndex(el=>el.id===id)].quantity +=1
-    setCarts(clonedCart);
+      clonedCart[carts.findIndex(el => el.id === id)].quantity += 1
+      setCarts(clonedCart);
     }
-    else{
-    setCarts([...carts,newItem]);
+    else {
+      setCarts([...carts, newItem]);
     }
   }
+
+  const decQuantity = (id) => {
+    const idx = carts.findIndex(el => el.id === id);
+      const clonedCart = [...carts];
+      clonedCart[idx].quantity -= 1
+      if(clonedCart[idx].quantity===0){
+       clonedCart.splice(idx,1);
+       return setCarts(clonedCart)
+      }else{
+      setCarts(clonedCart);
+      }
+    }
+
+    const incQuantity = (id) =>{
+      addToCart(id);
+    }
 
   return (
     <div className='flex flex-col h-screen'>
@@ -43,7 +59,7 @@ function App() {
           <ProductList products={products} addToCart={addToCart} />
         </div>
         <div className='flex grow-1 min-w-60'>
-          <CartSummary carts={carts} />
+          <CartSummary carts={carts} decQuantity={decQuantity} incQuantity={incQuantity} />
         </div>
       </div>
     </div>
