@@ -15,7 +15,7 @@ const [showDesc,setShowDesc]=useState(false);
     <h2 className="card-title line-clamp-1">{title}</h2>
     <p>{category}</p>
     <p className={`cursor-pointer ${showDesc?'':'line-clamp-2'}`} onClick={()=>setShowDesc(prv=>!prv)}>{description}</p>
-    <h2 className="card-title ">{price}</h2>
+    <h2 className="card-title ">{price+'฿'}</h2>
     <div className="card-actions justify-end">
       <button className="btn">More</button>
       <button className="btn btn-primary bg-red-700 border-red-700 shadow-red-500"

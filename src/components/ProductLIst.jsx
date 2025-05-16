@@ -8,7 +8,7 @@ function ProductLIst(props) {
     <div className='w-1/1 bg-blue-300 p-2'>
       <h2 className='rounded py-2 text-2xl'>ProductLIst</h2>
         <div className="divider m-1 mt-0"></div>
-      <div className='flex flex-wrap gap-4 justify-start '>
+      <div className='flex flex-wrap gap-2 justify-start '>
         {products.map(el=>(
           <ProductCard key={el.id} productItem={el} addToCart={addToCart} />
         ))}

@@ -9,9 +9,9 @@ const {cartItem: {id,title,price,quantity},decQuantity,incQuantity}=props
       <div className='flex gap-1'>
         <button className="btn btn-square h-5 w-5" onClick={()=>decQuantity(id)}>-</button>
         <p>{quantity}</p>
-        <button className="btn btn-square h-5 w-5" onClick={()=>incQuantity(id)}>+</button>
+        <button className="btn bdtn-square h-5 w-5" onClick={()=>incQuantity(id)}>+</button>
       </div>
-      <p>{quantity}</p>
+      <p>{(quantity*price).toFixed(2)+'฿'}</p>
     </div>
   )
 }
