@@ -1,8 +1,10 @@
 import React from 'react'
 
-function NavIcon() {
+function NavIcon(props) {
+const {itemCount} = props;
+
   return (
-    <div>NavIcon</div>
+    <div>NavIcon : {itemCount}</div>
   )
 }
 

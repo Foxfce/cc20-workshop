@@ -6,19 +6,20 @@ import CartSummary from './components/CartSummary'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+const [products,setProducts]=useState([])
+  const [carts,setCarts]=useState([]);
 
   return (
     <div className='flex flex-col h-screen'>
       <div>
-        <Header />
+        <Header itemCount={carts.length} />
       </div>
       <div className='flex grow-1'>
         <div className='flex grow-3'>
-          <ProductList />
+          <ProductList products={products} />
         </div>
         <div className='flex grow-1'>
-            <CartSummary />
+            <CartSummary carts={carts} />
         </div>
       </div>
     </div>
